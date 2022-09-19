@@ -5,7 +5,6 @@
         <report_name>FEATURE_REGRESSION</report_name>
         <mode>sequence</mode>
         <env>prod</env>
-        <output_folder>/tmp/</output_folder>
         <bridge_token>52afba37-9b97-495d-8763-aa865b02bb291663248056808</bridge_token>
         <username>arpit.mishra</username>
     </suite>
@@ -74,23 +73,7 @@
         </testcase>
         
         
-        <testcase>
-            <name>Single api restcountry</name>
-            <category>sample</category>
-            <run_flag>Y</run_flag>
-            <api>https://restcountries.com/v3.1/lang/german</api>
-            <method>GET</method>
-            <body>{}</body>
-            <headers>{}</headers>
-            <expected_status_code>200,300,400</expected_status_code>
-            <authentication></authentication>
-            <pre_variables>set $[#SUITE.varpost]=posts;set $[#epochmilli]=$[#epoch(milli)]; set $[#SUITE.user] = users; set $[#SUITE.var1] = VAR_1</pre_variables>
-            <post_assertion>compare response[0].name.common not to 'germany'; compare name.common to 'namibia'</post_assertion>
-            <debug_mode>false</debug_mode>
-            <report_misc></report_misc>
-            <TYPE>PYPREST</TYPE>
-
-        </testcase>
+       
     </testcases>
 
 
