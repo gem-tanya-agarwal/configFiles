@@ -5,7 +5,6 @@
         <report_name>FEATURE_REGRESSION</report_name>
         <mode>sequence</mode>
         <env>prod</env>
-        <output_folder>/tmp/</output_folder>
         <bridge_token>52afba37-9b97-495d-8763-aa865b02bb291663248056808</bridge_token>
         <username>arpit.mishra</username>
     </suite>
