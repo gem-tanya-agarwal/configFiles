@@ -1,0 +1,73 @@
+<data>
+        <suite>
+                <project-name>GEMECO-API-PY</project-name>
+                <report-name>S3 upload Apis</report-name>
+                <mode>Sequence</mode>
+                <environment>beta</environment>
+        </suite>
+        <testcases>
+                <testcase>
+
+                        <name>API_to_get_all_the_manual_testcase_of_same_project </name>
+
+                        <method>get</method>
+
+                        <category>manual_testcase</category>
+
+                        <api>https://apis-beta.gemecosystem.com/v2/manual/testcase/same/project?id=43787&type=link</api>
+
+                        <headers>{"Authorization": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJnZWNvLXRhbnlhIiwiYXVkIjoiQ09SUE9SQVRFIiwiaWF0IjoxNjgyOTI3NTYxLCJleHAiOjE2ODI5NzA3NjF9.avKdk8xRCV5O1BCGB35LTLa5Hpz8I48g6OiYSstMuwOiHyo_Xo7IRrwkf6U-IQSrJfkyxUbgjxtVmQdAs-swFQ","Content-Type": "application/json"}</headers>
+                        <expected_status_code>200</expected_status_code>
+
+                        <type>PYPREST</type>
+
+                        <run_flag>Y</run_flag>
+
+                </testcase>
+                <testcase>
+
+                        <name>snowflake DB</name>
+
+                        <category>dv</category>
+
+                        <type>DV</type>
+
+                        <run_flag>N</run_flag>
+
+                        <target_conn>snowflake.connector.connect(user="TANYAAGARWAL",password="Agarwal@555",account="vjmhzlo-ul09504",warehouse='COMPUTE_WH',database="SNOWFLAKE_SAMPLE_DATA",schema="TPCH_SF100")</target_conn>
+
+                        <keys>C_ACCTBAL</keys>
+
+                        <target_sql>SELECT * from CUSTOMER</target_sql>
+
+                        <source_db>custom</source_db>
+
+                        <source_conn>snowflake.connector.connect(user="TANYAAGARWAL",password="Agarwal@555",account="vjmhzlo-ul09504",warehouse='COMPUTE_WH',database="SNOWFLAKE_SAMPLE_DATA",schema="TPCH_SF100")</source_conn>
+
+                        <source_sql>SELECT * from CUSTOMER</source_sql>
+
+                        <target_db>custom</target_db>
+
+                </testcase>
+                <testcase>
+                        <name>testcase 1</name>
+                        <run_flag>N</run_flag>
+                        <type>PYPREST</type>
+                        <api>https://gorest.co.in/public/v2/$[#user]</api>
+                        <method>GET</method>
+                        <body></body>
+                        <headers></headers>
+                        <expected-status-code>200,201</expected-status-code>
+                        <pre-variables>set $[#SUITE.user]=users;set $[#user]=users</pre-variables>
+                        <legacy-api>https://gorest.co.in/public/v1/users</legacy-api>
+                        <legacy-method>GET</legacy-method>
+                        <key-check>keys are response[0].id,legacy.data[each].id</key-check>
+                        <post-assertion>compare response[0].id to 12345</post-assertion>
+                        <post-variables>set $[SUITE.id]=$[#response[0].id]</post-variables>
+                        <poll-wait>{"poll":1,"wait":10}</poll-wait>
+                        <before-file>path=C:\Users\Tanya.Agarwal\Downloads\BeforeSampleFile (1).py,class=beforeAfter,method=before_method</before-file>
+                </testcase>
+
+        </testcases>
+
+</data>
